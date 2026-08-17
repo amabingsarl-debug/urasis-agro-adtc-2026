@@ -1,0 +1,18 @@
+Urasis Agro — ADTC 2026 competition prototype
+Copyright (c) 2026 Urasis Team
+
+Model attribution required by the upstream license:
+
+Qwen is licensed under the Qwen RESEARCH LICENSE AGREEMENT,
+Copyright (c) Alibaba Cloud. All Rights Reserved.
+
+The GGUF weights are not distributed in this repository. The provided
+download script retrieves the unmodified Qwen2.5-3B-Instruct Q4_K_M file from
+the official Qwen repository for non-commercial research and evaluation.
+License: https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/blob/main/LICENSE
+
+llama.cpp is developed by the ggml-org contributors and is distributed under
+the MIT License: https://github.com/ggml-org/llama.cpp/blob/master/LICENSE
+
+The agricultural corpus contains original summaries. Its source provenance is
+listed in corpus/SOURCES.md.

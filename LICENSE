@@ -1,0 +1,13 @@
+SPDX-License-Identifier: GPL-3.0-only
+
+Copyright (c) 2026 Urasis Team
+
+The original source code and documentation in this competition submission are
+licensed under the GNU General Public License version 3.0 only. You may copy,
+modify and redistribute them under that license.
+
+Full license text: https://www.gnu.org/licenses/gpl-3.0.txt
+
+This license does not relicense third-party materials. In particular, the Qwen
+model is governed by the Qwen Research License described in NOTICE, and the
+agricultural reference material remains subject to its respective source terms.

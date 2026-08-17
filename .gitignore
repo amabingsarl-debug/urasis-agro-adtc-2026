@@ -1,0 +1,10 @@
+model/*
+!model/.gitkeep
+*.gguf
+submission.json
+audit.json
+verdict.json
+.venv/
+.tools/
+__pycache__/
+*.pyc
