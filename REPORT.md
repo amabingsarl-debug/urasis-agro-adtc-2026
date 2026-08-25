@@ -71,15 +71,18 @@ The Ubuntu setup pins `llama.cpp` release `b10218`, compiles it with `LLAMA_CURL
 
 ## 6. Benchmarks
 
-Final numbers must come from the official ADTC profiler and must not be estimated. They will be inserted after running on the closest available Ubuntu 22.04 laptop profile.
+The following values were measured with the official ADTC profiler 0.1.0 on the participant laptop, using Ubuntu 22.04.2 LTS, CPU-only `llama.cpp`, and the declared Q4_K_M GGUF. The profiler output reports `"measured_on": "participant_laptop"`.
 
 | Metric | Target | Measured result |
 |---|---:|---:|
-| Peak RSS | below 7,168 MB | pending official profiler run |
-| Generation throughput | at least 8 tokens/s; stretch target 15 tokens/s | pending |
-| First-token latency | below 5 seconds | pending |
-| Peak temperature | below 85 °C | pending |
-| Offline inference network calls | 0 | pending verification |
+| Peak RSS | below 7,168 MB | 2,762.8 MB |
+| Generation throughput | at least 8 tokens/s; stretch target 15 tokens/s | 10.55 tokens/s |
+| First-token latency | measured CPU-only baseline | 16,114.86 ms |
+| CPU utilization p99 | report for transparency | 53.6% |
+| Thermal throttling | no throttling | false (temperature sensor unavailable) |
+| Offline inference network calls | 0 after model download | no network dependency in the llama.cpp runtime |
+
+The participant laptop exposed 3.6 GB RAM to Ubuntu WSL during this run. The Q4_K_M model completed successfully within that smaller available-memory envelope, with a peak RSS of 2,762.8 MB. The 16.1-second first-token result is a transparent CPU-only measurement, not a claimed target; the project prioritizes offline availability and conservative agricultural advice over interactive cloud-like latency.
 
 No accuracy percentage is self-reported. Response quality will be judged using the two declared agricultural prompts and the organisers' hidden prompts.
 

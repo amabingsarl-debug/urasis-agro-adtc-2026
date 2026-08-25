@@ -5,6 +5,7 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 TOOLS_DIR="$ROOT_DIR/.tools"
 LLAMA_DIR="$TOOLS_DIR/llama.cpp"
 LLAMA_CPP_TAG="${LLAMA_CPP_TAG:-b10218}"
+LLAMA_BUILD_JOBS="${LLAMA_BUILD_JOBS:-2}"
 
 sudo apt-get update
 sudo apt-get install -y build-essential cmake curl git
@@ -23,7 +24,7 @@ cmake -S "$LLAMA_DIR" -B "$LLAMA_DIR/build" \
   -DGGML_OPENMP=ON \
   -DLLAMA_CURL=OFF \
   -DCMAKE_BUILD_TYPE=Release
-cmake --build "$LLAMA_DIR/build" --config Release --parallel "$(nproc)"
+cmake --build "$LLAMA_DIR/build" --target llama-bench --config Release --parallel "$LLAMA_BUILD_JOBS"
 
 git -C "$LLAMA_DIR" rev-parse HEAD > "$TOOLS_DIR/llama.cpp.commit"
 
@@ -31,6 +32,7 @@ if ! command -v uv >/dev/null 2>&1; then
   curl -LsSf https://astral.sh/uv/install.sh | sh
 fi
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+export CMAKE_BUILD_PARALLEL_LEVEL="${CMAKE_BUILD_PARALLEL_LEVEL:-1}"
 uv python install 3.11
 uv tool install --force --python 3.11 \
   "git+https://github.com/Africa-Deep-Tech-Foundation/adtc-profiler.git"
